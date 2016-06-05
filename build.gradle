@@ -12,9 +12,19 @@ buildscript {
     }
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+    }
+}
+
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
     }
 }
 

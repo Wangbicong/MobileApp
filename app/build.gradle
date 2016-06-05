@@ -5,21 +5,20 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.ylxdzsw.caculator"
-        minSdkVersion 22
+        applicationId "com.ylxdzsw.calculator"
+        minSdkVersion 19
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
-        jackOptions {
-            enabled true
-        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -32,3 +31,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
 }
+
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'

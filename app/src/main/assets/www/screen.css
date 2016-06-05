@@ -1,0 +1,22 @@
+#wrapper {
+    direction: rtl;
+    overflow-x: scroll;
+}
+
+#screen {
+    display: table;
+    font-size: 20px;
+    height: 24px;
+    white-space: nowrap;
+    direction: ltr;
+    margin: 0;
+    padding: 0;
+}
+
+.op {
+    color: #ae81ff;
+}
+
+.pr {
+    color: #42b983;
+}
