@@ -1,6 +1,6 @@
 #wrapper {
     direction: rtl;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 #screen {
@@ -19,4 +19,12 @@
 
 .pr {
     color: #42b983;
+}
+
+.rs {
+    color: #e96900;
+}
+
+.er {
+    color: #ff6666;
 }
