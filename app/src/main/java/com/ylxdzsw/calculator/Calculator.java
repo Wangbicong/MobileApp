@@ -3,8 +3,9 @@ package com.ylxdzsw.calculator;
 import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebView;
+
+import com.ylxdzsw.kit.R;
 
 enum Status {
     INPUT, RESULT, ERROR
