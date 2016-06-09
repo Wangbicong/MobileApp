@@ -11,18 +11,12 @@
         <activity android:name=".Kit" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.ylxdzsw.calculator.Calculator">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name="com.ylxdzsw.calculator.Calculator" />
+        <activity android:name="com.ylxdzsw.pinball.Pinball" />
     </application>
 
 </manifest>
