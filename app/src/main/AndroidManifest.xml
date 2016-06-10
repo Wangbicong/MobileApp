@@ -17,6 +17,7 @@
 
         <activity android:name="com.ylxdzsw.calculator.Calculator" />
         <activity android:name="com.ylxdzsw.pinball.Pinball" />
+        <activity android:name="com.ylxdzsw.chat.Chat" />
     </application>
 
 </manifest>

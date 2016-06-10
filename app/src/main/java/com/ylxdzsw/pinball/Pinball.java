@@ -36,7 +36,7 @@ public class Pinball extends AppCompatActivity implements Animation.AnimationLis
         } else {
             ani.setInterpolator(input -> (1-input) * (1-input));
         }
-        ani.setDuration(50000 / (times+10));
+        ani.setDuration(20000 / (times+4));
         ball.startAnimation(ani);
         times += 1;
     }

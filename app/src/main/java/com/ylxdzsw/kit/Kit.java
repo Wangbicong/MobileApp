@@ -25,7 +25,7 @@ class App {
     static App[] appList = {
         new App("计算器", R.drawable.calculator, com.ylxdzsw.calculator.Calculator.class),
         new App("弹球",   R.drawable.pinball,    com.ylxdzsw.pinball.Pinball.class),
-        new App("聊天",   R.drawable.chat,       com.ylxdzsw.calculator.Calculator.class),
+        new App("聊天",   R.drawable.chat,       com.ylxdzsw.chat.Chat.class),
         new App("地图",   R.drawable.map,        com.ylxdzsw.calculator.Calculator.class)
     };
 }
