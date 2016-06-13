@@ -27,12 +27,14 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 class Tuple<T,S> {
@@ -113,6 +115,23 @@ public class Chat extends AppCompatActivity {
     }
 
     private void listen() {
+        try {
+            Enumeration interfaceIter = NetworkInterface.getNetworkInterfaces();
+            while(interfaceIter.hasMoreElements())
+            {
+                NetworkInterface n = (NetworkInterface) interfaceIter.nextElement();
+                Enumeration addressIter = n.getInetAddresses();
+                while (addressIter.hasMoreElements())
+                {
+                    InetAddress i = (InetAddress) addressIter.nextElement();
+                    data.add(new Tuple<>(i.getHostAddress(), String.valueOf(10086)));
+                }
+            }
+        } catch (SocketException e) {
+            Toast.makeText(this, "监听失败", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         new Thread(() -> {
             try {
                 serverSocket = new ServerSocket(getResources().getInteger(R.integer.listen_port));
@@ -120,12 +139,15 @@ public class Chat extends AppCompatActivity {
                 serverSocket.close();
                 receive();
             } catch (IOException e) {
+                Toast.makeText(this, "监听失败", Toast.LENGTH_SHORT).show();
                 return;
             }
         }).start();
     }
 
     private void receive() {
+        data.clear();
+
         new Thread(() -> {
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
