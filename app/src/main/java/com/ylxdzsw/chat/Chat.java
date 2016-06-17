@@ -124,7 +124,7 @@ public class Chat extends AppCompatActivity {
                 while (addressIter.hasMoreElements())
                 {
                     InetAddress i = (InetAddress) addressIter.nextElement();
-                    data.add(new Tuple<>(i.getHostAddress(), String.valueOf(10086)));
+                    data.add(new Tuple<>(i.getHostAddress(), String.valueOf(getResources().getInteger(R.integer.listen_port))));
                 }
             }
         } catch (SocketException e) {
