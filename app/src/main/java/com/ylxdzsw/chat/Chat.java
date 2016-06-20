@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +56,6 @@ public class Chat extends AppCompatActivity {
     private Socket socket;
     private ServerSocket serverSocket;
     private ArrayList<Tuple<String, String>> data;
-    private Handler handler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,6 @@ public class Chat extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         button   = (Button)   findViewById(R.id.button);
         data     = new ArrayList<>();
-        handler  = new Handler();
 
         button.setOnClickListener(v -> {
             if (socket == null) {
@@ -86,14 +86,20 @@ public class Chat extends AppCompatActivity {
     }
 
     private void send() {
-        String data = editText.getText().toString();
+        String msg = editText.getText().toString();
 
-        try {
-            PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-            writer.println(data);
-        } catch (Exception e) {
-            return;
-        }
+        new Thread(() -> {
+            try {
+                PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+                writer.println(msg);
+                writer.flush();
+                data.add(new Tuple<>("我", msg));
+                runOnUiThread(() -> ((ChatAdapter) listView.getAdapter()).notifyDataSetChanged());
+            } catch (Exception e) {
+                runOnUiThread(() -> Toast.makeText(this, "发送失败", Toast.LENGTH_SHORT).show());
+                return;
+            }
+        }).start();
     }
 
     private void connect(Tuple<String, String> addr) {
@@ -106,15 +112,17 @@ public class Chat extends AppCompatActivity {
                 socket = new Socket(address, port);
                 serverSocket.close();
                 receive();
-            } catch (SocketException e) {
-
             } catch (Exception e) {
-                Toast.makeText(this, "地址有误", Toast.LENGTH_SHORT).show();
+                runOnUiThread(() ->  Toast.makeText(this, "地址有误", Toast.LENGTH_SHORT).show());
             }
         }).start();
     }
 
     private void listen() {
+        socket = null;
+        data.clear();
+        runOnUiThread(() -> button.setText("连接"));
+
         try {
             Enumeration interfaceIter = NetworkInterface.getNetworkInterfaces();
             while(interfaceIter.hasMoreElements())
@@ -127,6 +135,7 @@ public class Chat extends AppCompatActivity {
                     data.add(new Tuple<>(i.getHostAddress(), String.valueOf(getResources().getInteger(R.integer.listen_port))));
                 }
             }
+            runOnUiThread(() -> ((ChatAdapter) listView.getAdapter()).notifyDataSetChanged());
         } catch (SocketException e) {
             Toast.makeText(this, "监听失败", Toast.LENGTH_SHORT).show();
             return;
@@ -138,8 +147,10 @@ public class Chat extends AppCompatActivity {
                 socket = serverSocket.accept();
                 serverSocket.close();
                 receive();
+            } catch (SocketException e) {
+
             } catch (IOException e) {
-                Toast.makeText(this, "监听失败", Toast.LENGTH_SHORT).show();
+                runOnUiThread(() -> Toast.makeText(this, "监听失败", Toast.LENGTH_SHORT).show());
                 return;
             }
         }).start();
@@ -147,16 +158,24 @@ public class Chat extends AppCompatActivity {
 
     private void receive() {
         data.clear();
+        runOnUiThread(() -> button.setText("发送"));
 
         new Thread(() -> {
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String line;
-                while ((line = reader.readLine()) != null) {
+                while (true) {
+                    line = reader.readLine();
+                    if (line == null) {
+                        runOnUiThread(() -> Toast.makeText(this, "对方终止了连接", Toast.LENGTH_SHORT).show());
+                        listen();
+                        return;
+                    }
                     data.add(new Tuple<>("对方", line));
+                    runOnUiThread(() -> ((ChatAdapter) listView.getAdapter()).notifyDataSetChanged());
                 }
             } catch (IOException e) {
-                return;
+                runOnUiThread(() -> Toast.makeText(this, "读取失败", Toast.LENGTH_SHORT).show());
             }
         }).start();
     }
