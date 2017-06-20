@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">百宝箱</string>
+
+    <string name="calculator">计算器</string>
+    <string name="chat">即时聊天</string>
+    <string name="map">地图</string>
+    <string name="pinball">弹球</string>
+
 </resources>

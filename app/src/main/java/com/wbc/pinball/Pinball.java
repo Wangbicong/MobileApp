@@ -1,13 +1,12 @@
-package com.ylxdzsw.pinball;
+package com.wbc.pinball;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
-import android.view.animation.Interpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
-import com.ylxdzsw.kit.R;
+import com.wbc.kit.R;
 
 public class Pinball extends AppCompatActivity implements Animation.AnimationListener {
     private ImageView ball;
@@ -19,12 +18,14 @@ public class Pinball extends AppCompatActivity implements Animation.AnimationLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pinball);
 
+        setTitle(R.string.pinball);
+
         ball = (ImageView) findViewById(R.id.imageView);
         times = 0;
         ani = new TranslateAnimation(Animation.ABSOLUTE, 0f,
                                      Animation.ABSOLUTE, 0f,
                                      Animation.RELATIVE_TO_PARENT, 0f,
-                                     Animation.RELATIVE_TO_PARENT, .28f);
+                                     Animation.RELATIVE_TO_PARENT, 0.47f);
 
         ani.setAnimationListener(this);
         nextAnimation();

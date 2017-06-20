@@ -4,11 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.ylxdzsw.calculator.Calculator">
+    tools:context="com.wbc.calculator.Calculator">
 
     <LinearLayout
         android:orientation="vertical"
@@ -21,134 +18,123 @@
             android:id="@+id/webView"
             android:layout_gravity="top|left|right" />
 
-        <GridLayout
+        <RelativeLayout
+            android:paddingTop="@dimen/activity_vertical_margin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:rowCount="5"
-            android:columnCount="4"
-            android:layout_gravity="left|bottom|right">
+            android:layout_height="match_parent">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="("
-                android:id="@+id/lp" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"
+                android:background="#000000"
+                android:orientation="horizontal"
+                android:rowCount="5"
+                android:columnCount="4">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=")"
-                android:id="@+id/rp" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="("
+                    android:id="@+id/lp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="AC"
-                android:id="@+id/ac" />
+                <Button
+                    style="@style/cal_button"
+                    android:text=")"
+                    android:id="@+id/rp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="÷"
-                android:id="@+id/div" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="AC"
+                    android:id="@+id/ac" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="7"
-                android:id="@+id/n7" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="÷"
+                    android:id="@+id/div" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8"
-                android:id="@+id/n8" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="7"
+                    android:id="@+id/n7" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9"
-                android:id="@+id/n9" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="8"
+                    android:id="@+id/n8" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="×"
-                android:id="@+id/mul" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="9"
+                    android:id="@+id/n9" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4"
-                android:id="@+id/n4" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="×"
+                    android:id="@+id/mul" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5"
-                android:id="@+id/n5" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="4"
+                    android:id="@+id/n4" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="6"
-                android:id="@+id/n6" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="5"
+                    android:id="@+id/n5" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-"
-                android:id="@+id/minus" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="6"
+                    android:id="@+id/n6" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:id="@+id/n1" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="-"
+                    android:id="@+id/minus" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2"
-                android:id="@+id/n2" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="1"
+                    android:id="@+id/n1" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:id="@+id/n3" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="2"
+                    android:id="@+id/n2" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+"
-                android:id="@+id/plus" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="3"
+                    android:id="@+id/n3" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/n0" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="+"
+                    android:id="@+id/plus" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="."
-                android:id="@+id/dot" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="0"
+                    android:id="@+id/n0" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="←"
-                android:id="@+id/back" />
+                <Button
+                    style="@style/cal_button"
+                    android:text="."
+                    android:id="@+id/dot" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="="
-                android:id="@+id/eq" />
-        </GridLayout>
+                <Button
+                    style="@style/cal_button"
+                    android:text="←"
+                    android:id="@+id/back" />
+
+                <Button
+                    style="@style/cal_button"
+                    android:text="="
+                    android:id="@+id/eq" />
+            </GridLayout>
+
+        </RelativeLayout>
 
     </LinearLayout>
 </RelativeLayout>

@@ -1,15 +1,12 @@
-package com.ylxdzsw.calculator;
+package com.wbc.calculator;
 
 import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-import com.ylxdzsw.kit.R;
+import com.wbc.kit.R;
 
-enum Status {
-    INPUT, RESULT, ERROR
-}
 
 public class Calculator extends AppCompatActivity {
     private StringBuilder expression;
@@ -22,6 +19,8 @@ public class Calculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+
+        setTitle(R.string.calculator);
 
         expression = new StringBuilder();
         webView    = (WebView) findViewById(R.id.webView);
@@ -143,4 +142,8 @@ public class Calculator extends AppCompatActivity {
         }
     }
 
+}
+
+enum Status {
+    INPUT, RESULT, ERROR
 }

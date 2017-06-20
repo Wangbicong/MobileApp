@@ -16,8 +16,8 @@ function render(x, y) {
     if (x == 'error')
         return '<span class="er"> Error </span>'
 
-    x = x.replace(/\*/g, '×')
-         .replace(/\//g, '÷')
+    x = x.replace(/\*/g, '&times;')
+         .replace(/\//g, '&divide;')
          .replace(/([\+\-×÷])/g, '<span class="op"> $1 </span>')
          .replace(/([\(\)])/g, '<span class="pr">$1</span>')
 

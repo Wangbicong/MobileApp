@@ -1,53 +1,34 @@
-package com.ylxdzsw.chat;
+package com.wbc.chat;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ylxdzsw.kit.R;
+import com.wbc.kit.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketAddress;
 import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.List;
 
-class Tuple<T,S> {
-    public final T first;
-    public final S rest;
-
-    Tuple(T first, S rest) {
-        this.first = first;
-        this.rest  = rest;
-    }
-}
 
 public class Chat extends AppCompatActivity {
     private EditText editText;
@@ -61,6 +42,8 @@ public class Chat extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        setTitle(R.string.chat);
 
         editText = (EditText) findViewById(R.id.editText);
         listView = (ListView) findViewById(R.id.listView);
@@ -196,5 +179,15 @@ public class Chat extends AppCompatActivity {
             textView.setText(data.first + ": " + data.rest);
             return convertView;
         }
+    }
+}
+
+class Tuple<T,S> {
+    public final T first;
+    public final S rest;
+
+    Tuple(T first, S rest) {
+        this.first = first;
+        this.rest  = rest;
     }
 }

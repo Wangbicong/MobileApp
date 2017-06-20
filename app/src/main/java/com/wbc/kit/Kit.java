@@ -1,4 +1,4 @@
-package com.ylxdzsw.kit;
+package com.wbc.kit;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,24 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class App {
-    public String name;
-    public int icon;
-    public Class activity;
-
-    public App(String name, int icon, Class activity) {
-        this.name     = name;
-        this.icon     = icon;
-        this.activity = activity;
-    }
-
-    static App[] appList = {
-        new App("计算器", R.drawable.calculator, com.ylxdzsw.calculator.Calculator.class),
-        new App("弹球",   R.drawable.pinball,    com.ylxdzsw.pinball.Pinball.class),
-        new App("聊天",   R.drawable.chat,       com.ylxdzsw.chat.Chat.class),
-        new App("地图",   R.drawable.map,        com.ylxdzsw.map.Map.class)
-    };
-}
 
 public class Kit extends AppCompatActivity {
     private GridView gridView;
@@ -63,4 +45,25 @@ public class Kit extends AppCompatActivity {
             startActivity(new Intent(this, (Class) item.get("activity")));
         });
     }
+}
+
+
+
+class App {
+    public String name;
+    public int icon;
+    public Class activity;
+
+    public App(String name, int icon, Class activity) {
+        this.name     = name;
+        this.icon     = icon;
+        this.activity = activity;
+    }
+
+    static App[] appList = {
+            new App("计算器", R.drawable.calculator, com.wbc.calculator.Calculator.class),
+            new App("弹球",   R.drawable.pinball,    com.wbc.pinball.Pinball.class),
+            new App("地图",   R.drawable.map,        com.wbc.map.Map.class),
+            new App("即时聊天",   R.drawable.chat,       com.wbc.chat.Chat.class)
+    };
 }

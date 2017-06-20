@@ -1,4 +1,4 @@
-package com.ylxdzsw.map;
+package com.wbc.map;
 
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -18,7 +18,7 @@ import com.amap.api.services.geocoder.GeocodeQuery;
 import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeResult;
-import com.ylxdzsw.kit.R;
+import com.wbc.kit.R;
 
 public class Map extends AppCompatActivity {
     private MapView mapView;
@@ -29,6 +29,8 @@ public class Map extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        setTitle(R.string.map);
+
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
 
@@ -37,6 +39,7 @@ public class Map extends AppCompatActivity {
         findViewById(R.id.current).setOnClickListener(v -> getCurrentPos());
 
         aMap = mapView.getMap();
+        getCurrentPos();
     }
 
     @Override
@@ -72,12 +75,12 @@ public class Map extends AppCompatActivity {
         EditText editText = new EditText(this);
 
         new AlertDialog.Builder(this)
-            .setTitle("输入经纬度，英文逗号分隔")
-            .setIcon(android.R.drawable.ic_dialog_info)
+            .setTitle("请输入经纬度坐标：")
+            .setIcon(R.drawable.remind)
             .setView(editText)
             .setNegativeButton("取消", null)
             .setPositiveButton("确定", (d, which) -> {
-                String[] x = editText.getText().toString().split(",");
+                String[] x = editText.getText().toString().split(" ");
                 try {
                     moveTo(Double.valueOf(x[0]), Double.valueOf(x[1]));
                 } catch (Exception e) {
@@ -90,8 +93,8 @@ public class Map extends AppCompatActivity {
         EditText editText = new EditText(this);
 
         new AlertDialog.Builder(this)
-                .setTitle("输入要查询的位置(哈尔滨内)")
-                .setIcon(android.R.drawable.ic_dialog_info)
+                .setTitle("请输入位置：")
+                .setIcon(R.drawable.remind)
                 .setView(editText)
                 .setNegativeButton("取消", null)
                 .setPositiveButton("确定", (d, which) -> {
