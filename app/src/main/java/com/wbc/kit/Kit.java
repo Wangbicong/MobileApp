@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
+import com.wbc.chat.Setting;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,6 +66,7 @@ class App {
             new App("计算器", R.drawable.calculator, com.wbc.calculator.Calculator.class),
             new App("弹球",   R.drawable.pinball,    com.wbc.pinball.Pinball.class),
             new App("地图",   R.drawable.map,        com.wbc.map.Map.class),
-            new App("即时聊天",   R.drawable.chat,       com.wbc.chat.Chat.class)
+            new App("即时聊天",   R.drawable.chat,       com.wbc.chat.Chat.class),
+            new App("设置", R.drawable.settings, Setting.class)
     };
 }

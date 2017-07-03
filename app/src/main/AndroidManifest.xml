@@ -14,6 +14,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--允许程序改变WiFi网络信息-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
 
     <application
@@ -33,6 +35,7 @@
         <activity android:name="com.wbc.pinball.Pinball" />
         <activity android:name="com.wbc.chat.Chat" />
         <activity android:name="com.wbc.map.Map" />
+        <activity android:name="com.wbc.chat.Setting" />
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
