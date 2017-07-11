@@ -1,8 +1,0 @@
-//
-// Created by wangbicong on 2017/6/24.
-//
-
-#ifndef MOBILEAPP_NATIVE_CALCULATE_H
-#define MOBILEAPP_NATIVE_CALCULATE_H
-
-#endif //MOBILEAPP_NATIVE_CALCULATE_H

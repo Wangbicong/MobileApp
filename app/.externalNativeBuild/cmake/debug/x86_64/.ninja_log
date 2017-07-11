@@ -1,0 +1,3 @@
+# ninja log v5
+0	363	0	CMakeFiles/native-calculate.dir/src/main/cpp/native-calculate.cpp.o	9951a0c8c163fd17
+363	667	0	../../../../build/intermediates/cmake/debug/obj/x86_64/libnative-calculate.so	c43902291a09550e

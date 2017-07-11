@@ -1,0 +1,38 @@
+
+{
+	"buildFiles" : [ "/Users/wangbicong/Codes/MobileApp/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"/Users/wangbicong/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/wangbicong/Codes/MobileApp/app/.externalNativeBuild/cmake/release/x86_64 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"native-calculate-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "native-calculate",
+			"buildCommand" : "/Users/wangbicong/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/wangbicong/Codes/MobileApp/app/.externalNativeBuild/cmake/release/x86_64 --target native-calculate",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=x86_64-none-linux-android --gcc-toolchain=/Users/wangbicong/Library/Android/sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/wangbicong/Library/Android/sdk/ndk-bundle/sysroot  -Dnative_calculate_EXPORTS -I../../../../src/main/cpp/include -isystem /Users/wangbicong/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/wangbicong/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86_64/include -isystem /Users/wangbicong/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /Users/wangbicong/Library/Android/sdk/ndk-bundle/sysroot/usr/include/x86_64-linux-android -D__ANDROID_API__=22 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/Users/wangbicong/Codes/MobileApp/app/src/main/cpp/native-calculate.cpp",
+					"workingDirectory" : "/Users/wangbicong/Codes/MobileApp/app/.externalNativeBuild/cmake/release/x86_64"
+				}
+			],
+			"output" : "/Users/wangbicong/Codes/MobileApp/app/build/intermediates/cmake/release/obj/x86_64/libnative-calculate.so",
+			"toolchain" : "13938267968627547912"
+		}
+	},
+	"toolchains" : 
+	{
+		"13938267968627547912" : 
+		{
+			"cCompilerExecutable" : "/Users/wangbicong/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/wangbicong/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+		}
+	}
+}

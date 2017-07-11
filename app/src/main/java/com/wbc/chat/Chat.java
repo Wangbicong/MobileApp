@@ -155,15 +155,12 @@ public class Chat extends AppCompatActivity {
         @Override
         public void run() {
             try{
-
-                // 实例化一个Socket
                 clientSocket = new Socket(this.serverIP,this.serverPort);
-                // 打开OutputStream
+
                 OutputStream outputStream = clientSocket.getOutputStream();
-                // 写数据，完成发送
+
                 outputStream.write(this.content.getBytes());
 
-                // 添加一个"发送"类型消息的展示（如果Socket发送成功的话，不然会报错）
                 Message message = new Message();
                 message.what = Chat.SEND_MESSAGE;
                 message.obj = content;
@@ -171,7 +168,7 @@ public class Chat extends AppCompatActivity {
 
             }catch (IOException e) {
                 Looper.prepare();
-                // 发送失败，显示原因
+
                 Toast.makeText(Chat.this,"发送失败: \n"+e.toString(),Toast.LENGTH_LONG).show();
                 Looper.loop();
             }
